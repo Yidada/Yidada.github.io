@@ -2567,13 +2567,12 @@ body {
   left: auto;
 }
 /*=============post content==============*/
-#post {
+#post,
+#archive,
+#tag,
+.content {
   width: 80%;
-  margin: 0 auto;
-}
-#archive {
-  width: 80%;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 /*===========pagination======*/
 #pagination {
