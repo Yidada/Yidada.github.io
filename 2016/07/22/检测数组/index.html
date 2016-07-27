@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>检测数组Z-INDEX</title>
+  <meta http-equiv="description" content="张达铭-Z-INDEX" />
+  <meta name="description" content="张达铭的个人博客，张达铭的技术作品，张达铭的生活成长" />
+  <meta name="keywords" content="张达铭,张益达,个人博客, 个人网站, web前端,JavaScript,css,html" />
+  <meta name="author" content="张达铭,张益达,zhangdaming,zhangyida" />
+
+
+  <!-- css -->
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/z-index.css">
+    
+  
+</head>
+<body>
+<!-- header -->
+<header id="menu-outer">
+  <nav id="menu-inner">
+    <a href="/">
+      <i class="iconfont logo">&#xe600;</i>
+      Z-INDEX
+    </a>
+    
+      <a href="/">首页</a>
+    
+      <a href="/archives">归档</a>
+    
+  </nav>
+</header>
+
+
+
+<!-- content -->
+
+<article id="content-outer">
+  <div id="content-inner">
+    
+<article class="typo" id="post">
+  <h1>检测数组</h1>
+  <h1 id="js中如何判断数组对象"><a href="#js中如何判断数组对象" class="headerlink" title="js中如何判断数组对象"></a>js中如何判断数组对象</h1><p>这个好像提起来好简单啊。可能在java或者c当中这种东西就是一句话的问题，为毛这里要特别的还要写个blog来研究。。</p>
+<p>其实小弟本来也是抱着这样的想法，直到有一天看到了大漠老师的一篇深入浅出的blog：<a href="http://www.w3cplus.com/javascript/array-part-2.html" target="_blank" rel="external">http://www.w3cplus.com/javascript/array-part-2.html</a></p>
+<p>才发现。。。自己too naive, too simple</p>
+<p>javascript是一门弱语言，这个不仅仅是体现在变量上面的没有类型的强制性。还体现在在js世界中，其实像Function啊Array啊它们本质上都是对象。这就导致了我们在对某个变量进行类型检测的时候，如果只是简单的采用typeof去测它的话得到的大部分给你的答案都是Object。。。俗称：万物皆对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span>;&#125;); <span class="comment">// function</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">"a"</span>); <span class="comment">// string</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">123</span>); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">true</span>); <span class="comment">// boolean</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> !<span class="literal">NaN</span>); <span class="comment">//boolean</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;name:<span class="string">"益达"</span>,age: <span class="string">"23"</span>&#125;); <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> [<span class="string">"益达"</span>,<span class="string">"23"</span>]); <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// object</span></div></pre></td></tr></table></figure>
+<p>你看你看，function还是function但是到了数组那儿，就是object了。</p>
+<p>这就引出了这篇的blog</p>
+<h2 id="如何检测数组"><a href="#如何检测数组" class="headerlink" title="如何检测数组"></a>如何检测数组</h2><p>大部分的浏览器都能通过ECMAScript5当中的isArray函数来检测，这个是一个很好用的内置函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'hello'</span>,<span class="string">'张益达'</span>];</div><div class="line">isArray(arr);<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>好的，本blog完结。。。。</p>
+<p>=，=怎么可能这么随便，虽然nice的高逼格的客户群是不用不支持ECMAScript5的浏览器（IE8及之前）</p>
+<p>但是。。抱着学术的态度，还是要研究研究如果我们自己实现一个isArray换句话说就是在IE8的这种浏览器下，怎么去判断数组；</p>
+<p>废话不多说，直接给出方法表:</p>
+<blockquote>
+<p>通过对象自身的<code>constructor</code>属性的判断</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"益达"</span>,<span class="string">"nicefe"</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.constructor === <span class="built_in">Array</span>); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>通过向上检测构造属性来判断是否为Array</p>
+<blockquote>
+<p>通过instanceof操作符判断</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;益达&quot;,&quot;nicefe&quot;];</div><div class="line">console.log(arr instanceof Array); // true</div></pre></td></tr></table></figure>
+<p>如果arr是一个Array对象的实例，那么就可以理解它是一个数组。</p>
+<blockquote>
+<p>对象原生的toString方法的检测</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">isArray = function(obj) &#123;</div><div class="line">    return Object.prototype.toString.call(obj) == &quot;[object Array]&quot;;</div><div class="line">&#125;</div><div class="line">var arr = [&quot;益达&quot;,&quot;nicefe&quot;];</div><div class="line">console.log(isArray(arr)); // true</div></pre></td></tr></table></figure>
+<p>这种是通过判断你要判断的对象是否有toString()方法来判断是否为数组。但是这个方法，额，如果我一不小心给某个对象加上了toString()方法的话，那么这个函数也同样会认为它是数组了。。。。</p>
+<p>这三种方法都是有效的；</p>
+<p>最后大漠老师总结了一个合成的方法，在不知道浏览器情况的情况下先通过判断isArray()方法是否有效，无效的情况下再通过判断toString是否为它的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var isArray = (function () &#123;</div><div class="line">    if (Array.isArray) &#123;</div><div class="line">        return Array.isArray;</div><div class="line">    &#125; </div><div class="line">    var objectToStringFn = Object.prototype.toString,</div><div class="line">        arrayToStringResult = objectToStringFn.call([]); </div><div class="line"></div><div class="line">    return function (subject) &#123;</div><div class="line">        return objectToStringFn.call(subject) === arrayToStringResult;</div><div class="line">    &#125;;</div><div class="line">&#125;());</div><div class="line"></div><div class="line">var arr = [];</div><div class="line">isArray(arr); // true</div></pre></td></tr></table></figure>
+<p>over….</p>
+
+</article>
+<div style="clear:both"></div>
+
+<!--<nav id="pagination">-->
+  <!---->
+
+  <!---->
+
+  <!---->
+    <!--<a href="/2016/07/20/nice-Tmall-活动H5优化小记/" class="next">Next &rarr;</a>-->
+  <!---->
+<!--</nav>-->
+
+
+  </div>
+</article>
+
+
+<!-- footer -->
+
+
+
+
+
+<!-- js -->
+
+  <!-- scripts list from theme config.yml -->
+  
+    <script src="/js/zepto.js"></script>
+  
+    <script src="/js/z-index.js"></script>
+  
+
+
+</body>
+</html>

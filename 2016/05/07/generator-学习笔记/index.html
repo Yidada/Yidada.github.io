@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>generator-学习笔记Z-INDEX</title>
+  <meta http-equiv="description" content="张达铭-Z-INDEX" />
+  <meta name="description" content="张达铭的个人博客，张达铭的技术作品，张达铭的生活成长" />
+  <meta name="keywords" content="张达铭,张益达,个人博客, 个人网站, web前端,JavaScript,css,html" />
+  <meta name="author" content="张达铭,张益达,zhangdaming,zhangyida" />
+
+
+  <!-- css -->
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/z-index.css">
+    
+  
+</head>
+<body>
+<!-- header -->
+<header id="menu-outer">
+  <nav id="menu-inner">
+    <a href="/">
+      <i class="iconfont logo">&#xe600;</i>
+      Z-INDEX
+    </a>
+    
+      <a href="/">首页</a>
+    
+      <a href="/archives">归档</a>
+    
+  </nav>
+</header>
+
+
+
+<!-- content -->
+
+<article id="content-outer">
+  <div id="content-inner">
+    
+<article class="typo" id="post">
+  <h1>generator-学习笔记</h1>
+  <blockquote>
+<p>generator </p>
+</blockquote>
+<p>好东西<br>koa.js提到的一个很重要的核心就是用到了generator，然后碰到了这篇很好的实战型讲解blog。果断学习之。</p>
+<p>定义一个generator函数也就是一个生成器函数:</p>
+<pre><code>function* gf(){};
+function *gf(){};
+function * gf(){};
+</code></pre><p>上面的三种方式都是可以的，都定义了一个生成器函数。</p>
+<p>生成器函数跟普通的函数不同的在于，调用生成器函数时会产生一个生成器（generator）对象。通过这个对象来对函数进行操作调用。而生成器拥有的最重要的方法就是<strong>next()</strong>,通过next()来控制迭代。</p>
+<pre><code>function* gf(){
+    console.log(&quot;hello&quot;);
+}
+gf();
+</code></pre><p>如上如果我们运行这样的一个test.js代码在node环境下（我的node环境是v4.2.2）好像不加 –harmony也是可以直接运行的。接着说，上面的这个js代码运行之后是没有任何输出的，也就是说console.log是没有执行的。这是因为执行gf()这个的时候，只是调用了生成器函数创建了一个生成器对象，而并没有执行里面的代码，如果需要执行代码的话则是需要调用next()函数的。</p>
+<pre><code>function *gf(){
+    cnosole.log(&quot;hello&quot;);
+}
+var g = gf();
+g.next();
+</code></pre><p>修改上面的代码成这样，再node一下它。发现我们想要的hello出来了。这样一下，大致的generator的作用就体现出来啦。</p>
+<blockquote>
+<p>yield</p>
+</blockquote>
+<p>yield其实就像IDE当中的一些断点一样。可以理解yield为代码当中添加了一个断点。举个栗子:</p>
+<pre><code>function* gf(){
+    console.log(&quot;hello&quot;);
+    var str = yield &quot;world&quot;;
+    console.log(str);
+}
+var g = gf();
+g.next();
+</code></pre><p>执行之，发现只打印出来了hello，就像断点一样，当执行到将字符串”world”赋值给str的时候，卡住了。so，猜想如果我们继续调用一个next()是不是就能继续执行这个函数了呢，再最后再添加一个g.next()。执行下，发现得到:</p>
+<pre><code>hello
+undefined
+</code></pre><p>==，很神奇对不对，执行了而又没有赋值给str，为啥叻，这是因为，yield后面跟着语句确实是返回了，只不过返回的hello值不是给了str变量，而是在第一次调用g.next()时，它会返回一个对象，这个对象当中有一个value属性，这个value属性值就是hello。修改一下代码实验下：</p>
+<pre><code>function* gf(){
+    console.log(&quot;hello&quot;);
+    var str = yield &quot;world&quot;;
+    console.log(str);
+}
+var g = gf();
+console.log(g.next().value);
+</code></pre><p>执行得到了我们的helloworld;<br>    再详细的解释yield发生的事-&gt;yield中断了函数执行，并且把yield的右侧的值，写入了本次调用的next生成的对象当中，我们可以直接去掉上面代码中的.value然后打印一下这个对象。打印出{ value: ‘world’, done: false }。<br>    当我们第二次执行next()方法的时候，yield会把next(args)方法的args赋值给左侧的变量，并继续执行语句;</p>
+<pre><code>function *gf(){
+    console.log(&quot;hello&quot;);
+    var str = yield &quot;world&quot;;
+    console.log(str);
+}
+var g = gf();
+g.next(g.next().value);//这里的args就是&quot;world&quot;
+</code></pre><p>这里第二次执行next操作的时候，上一步yield得到的value值也就是”world”被作为参数传到了第二个next()方法中，得到了我们预期的hello world ，所以我想如果我们第二次传入的不是上一步的value值，我换一个值传入:</p>
+<pre><code>function* gf() {
+    console.log(&quot;hello&quot;);
+    var str = yield &quot;world&quot;;
+    console.log(str);
+}
+var g = gf();
+g.next();
+g.next(&quot;yida&quot;);
+</code></pre><p>打印出来的是helloyida。证明了上面所说的，第二次next()方法中实际执行的是将next(args)中的args赋值给了左侧变量。并继续执行语句。<br><a href="http://www.html-js.cn/details/NkW231Z_.html" target="_blank" rel="external">nodeJs基础教程系列(7)——generator</a></p>
+
+</article>
+<div style="clear:both"></div>
+
+<!--<nav id="pagination">-->
+  <!---->
+    <!--<a href="/2016/05/07/Redux学习笔记-Reducer-1/" class="prev">&larr; Prev</a>-->
+  <!---->
+
+  <!---->
+
+  <!---->
+    <!--<a href="/2016/05/02/Redux学习笔记-Action/" class="next">Next &rarr;</a>-->
+  <!---->
+<!--</nav>-->
+
+
+  </div>
+</article>
+
+
+<!-- footer -->
+
+
+
+
+
+<!-- js -->
+
+  <!-- scripts list from theme config.yml -->
+  
+    <script src="/js/zepto.js"></script>
+  
+    <script src="/js/z-index.js"></script>
+  
+
+
+</body>
+</html>

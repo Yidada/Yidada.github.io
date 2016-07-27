@@ -1,0 +1,2911 @@
+html {
+  color: #333;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+}
+html.borderbox *,
+html.borderbox *:before,
+html.borderbox *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+blockquote {
+  position: relative;
+  color: #999;
+  font-weight: 400;
+  border-left: 1px solid #1abc9c;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em;
+}
+@media only screen and (max-width: 640px) {
+  blockquote {
+    margin: 1em 0;
+  }
+}
+acronym,
+abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+abbr {
+  cursor: help;
+}
+del {
+  text-decoration: line-through;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 400;
+}
+ul,
+ol {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+q:before,
+q:after {
+  content: '';
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+:root sub,
+:root sup {
+  vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+a {
+  color: #e70000;
+}
+a:hover {
+  text-decoration: underline;
+}
+.typo a {
+  border-bottom: 1px solid #e70000;
+}
+.typo a:hover {
+  border-bottom-color: #555;
+  color: #555;
+  text-decoration: none;
+}
+ins,
+a {
+  text-decoration: none;
+}
+u,
+.typo-u {
+  text-decoration: underline;
+}
+mark {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px;
+}
+pre,
+code,
+pre tt {
+  font-family: Courier, 'Courier New', monospace;
+}
+pre {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 1em 1.5em;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+hr {
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 0.8em;
+  height: 10px;
+}
+small,
+.typo-small,
+figcaption {
+  font-size: 0.9em;
+  color: #888;
+}
+strong,
+b {
+  font-weight: bold;
+  color: #000;
+}
+[draggable] {
+  cursor: move;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.textwrap,
+.textwrap td,
+.textwrap th {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.textwrap-table {
+  table-layout: fixed;
+}
+.serif {
+  font-family: Palatino, Optima, Georgia, serif;
+}
+.typo p,
+.typo pre,
+.typo ul,
+.typo ol,
+.typo dl,
+.typo form,
+.typo hr,
+.typo table,
+.typo-p,
+.typo-pre,
+.typo-ul,
+.typo-ol,
+.typo-dl,
+.typo-form,
+.typo-hr,
+.typo-table,
+blockquote {
+  margin-bottom: 1.2em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font-weight: 100;
+  color: #000;
+  line-height: 1.35;
+}
+.typo h1,
+.typo h2,
+.typo h3,
+.typo h4,
+.typo h5,
+.typo h6,
+.typo-h1,
+.typo-h2,
+.typo-h3,
+.typo-h4,
+.typo-h5,
+.typo-h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  line-height: 1.35;
+}
+.typo h1:nth-child(1) {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+.typo h1,
+.typo-h1 {
+  font-size: 2em;
+}
+.typo h2,
+.typo-h2 {
+  font-size: 1.8em;
+}
+.typo h3,
+.typo-h3 {
+  font-size: 1.6em;
+}
+.typo h4,
+.typo-h4 {
+  font-size: 1.4em;
+}
+.typo h5,
+.typo h6,
+.typo-h5,
+.typo-h6 {
+  font-size: 1.2em;
+}
+.typo ul,
+.typo-ul {
+  margin-left: 1.3em;
+  list-style: disc;
+}
+.typo ol,
+.typo-ol {
+  list-style: decimal;
+  margin-left: 1.9em;
+}
+.typo li ul,
+.typo li ol,
+.typo-ul ul,
+.typo-ul ol,
+.typo-ol ul,
+.typo-ol ol {
+  margin-bottom: 0.8em;
+  margin-left: 2em;
+}
+.typo li ul,
+.typo-ul ul,
+.typo-ol ul {
+  list-style: circle;
+}
+.typo table th,
+.typo table td,
+.typo-table th,
+.typo-table td,
+.typo table caption {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #666;
+}
+.typo table th,
+.typo-table th {
+  background: #fbfbfb;
+}
+.typo table thead th,
+.typo-table thead th {
+  background: #f1f1f1;
+}
+.typo table caption {
+  border-bottom: none;
+}
+.typo .gutter {
+  display: none;
+}
+.typo .code {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.typo-input,
+.typo-textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.typo-em,
+.typo em,
+legend,
+caption {
+  color: #000;
+  font-weight: inherit;
+}
+.typo-em {
+  position: relative;
+}
+.typo-em:after {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・";
+}
+.typo img {
+  max-width: 100%;
+}
+body {
+  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url("//at.alicdn.com/t/font_1469523993_5552719.eot"); /* IE9*/
+  src: url("//at.alicdn.com/t/font_1469523993_5552719.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("//at.alicdn.com/t/font_1469523993_5552719.woff") format('woff'), /* chrome、firefox */ url("//at.alicdn.com/t/font_1469523993_5552719.ttf") format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url("//at.alicdn.com/t/font_1469523993_5552719.svg#iconfont") format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+}
+/* =======loading ========= */
+.loading {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1d;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.loading .content {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.loading h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  text-align: center;
+  -webkit-transform: translate(-50%, 100px);
+  -moz-transform: translate(-50%, 100px);
+  -o-transform: translate(-50%, 100px);
+  -ms-transform: translate(-50%, 100px);
+  transform: translate(-50%, 100px);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.loading h1 span {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.loading h1 span:nth-child(1) {
+  -webkit-animation: spanShow 1s 1s forwards ease-in-out;
+  -moz-animation: spanShow 1s 1s forwards ease-in-out;
+  -o-animation: spanShow 1s 1s forwards ease-in-out;
+  -ms-animation: spanShow 1s 1s forwards ease-in-out;
+  animation: spanShow 1s 1s forwards ease-in-out;
+}
+.loading h1 span:nth-child(2) {
+  -webkit-animation: spanShow 1s 1.5s forwards ease-in-out;
+  -moz-animation: spanShow 1s 1.5s forwards ease-in-out;
+  -o-animation: spanShow 1s 1.5s forwards ease-in-out;
+  -ms-animation: spanShow 1s 1.5s forwards ease-in-out;
+  animation: spanShow 1s 1.5s forwards ease-in-out;
+}
+.loading h1 span:nth-child(3) {
+  -webkit-animation: spanShow 1s 2s forwards ease-in-out;
+  -moz-animation: spanShow 1s 2s forwards ease-in-out;
+  -o-animation: spanShow 1s 2s forwards ease-in-out;
+  -ms-animation: spanShow 1s 2s forwards ease-in-out;
+  animation: spanShow 1s 2s forwards ease-in-out;
+}
+.loading h1 span:nth-child(4) {
+  -webkit-animation: spanShow 1s 2.5s forwards ease-in-out;
+  -moz-animation: spanShow 1s 2.5s forwards ease-in-out;
+  -o-animation: spanShow 1s 2.5s forwards ease-in-out;
+  -ms-animation: spanShow 1s 2.5s forwards ease-in-out;
+  animation: spanShow 1s 2.5s forwards ease-in-out;
+}
+.loading h1 span:nth-child(5) {
+  -webkit-animation: spanShow 1s 3s forwards ease-in-out;
+  -moz-animation: spanShow 1s 3s forwards ease-in-out;
+  -o-animation: spanShow 1s 3s forwards ease-in-out;
+  -ms-animation: spanShow 1s 3s forwards ease-in-out;
+  animation: spanShow 1s 3s forwards ease-in-out;
+}
+.shape-contain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+.shape-contain:nth-child(1) {
+  -webkit-transform: translate(-50%, -50%) rotate(12deg);
+  -moz-transform: translate(-50%, -50%) rotate(12deg);
+  -o-transform: translate(-50%, -50%) rotate(12deg);
+  -ms-transform: translate(-50%, -50%) rotate(12deg);
+  transform: translate(-50%, -50%) rotate(12deg);
+}
+.shape-contain:nth-child(1) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #bd0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.1s infinite linear;
+  -moz-animation: shapeColor 3s 0.1s infinite linear;
+  -o-animation: shapeColor 3s 0.1s infinite linear;
+  -ms-animation: shapeColor 3s 0.1s infinite linear;
+  animation: shapeColor 3s 0.1s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #ed0000;
+  }
+  50% {
+    background-color: #eb0000;
+  }
+  100% {
+    background-color: #ed0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #ed0000;
+  }
+  50% {
+    background-color: #eb0000;
+  }
+  100% {
+    background-color: #ed0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #ed0000;
+  }
+  50% {
+    background-color: #eb0000;
+  }
+  100% {
+    background-color: #ed0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #ed0000;
+  }
+  50% {
+    background-color: #eb0000;
+  }
+  100% {
+    background-color: #ed0000;
+  }
+}
+.shape-contain:nth-child(2) {
+  -webkit-transform: translate(-50%, -50%) rotate(24deg);
+  -moz-transform: translate(-50%, -50%) rotate(24deg);
+  -o-transform: translate(-50%, -50%) rotate(24deg);
+  -ms-transform: translate(-50%, -50%) rotate(24deg);
+  transform: translate(-50%, -50%) rotate(24deg);
+}
+.shape-contain:nth-child(2) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #b90000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.2s infinite linear;
+  -moz-animation: shapeColor 3s 0.2s infinite linear;
+  -o-animation: shapeColor 3s 0.2s infinite linear;
+  -ms-animation: shapeColor 3s 0.2s infinite linear;
+  animation: shapeColor 3s 0.2s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #e80000;
+  }
+  50% {
+    background-color: #e30000;
+  }
+  100% {
+    background-color: #e80000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #e80000;
+  }
+  50% {
+    background-color: #e30000;
+  }
+  100% {
+    background-color: #e80000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #e80000;
+  }
+  50% {
+    background-color: #e30000;
+  }
+  100% {
+    background-color: #e80000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #e80000;
+  }
+  50% {
+    background-color: #e30000;
+  }
+  100% {
+    background-color: #e80000;
+  }
+}
+.shape-contain:nth-child(3) {
+  -webkit-transform: translate(-50%, -50%) rotate(36deg);
+  -moz-transform: translate(-50%, -50%) rotate(36deg);
+  -o-transform: translate(-50%, -50%) rotate(36deg);
+  -ms-transform: translate(-50%, -50%) rotate(36deg);
+  transform: translate(-50%, -50%) rotate(36deg);
+}
+.shape-contain:nth-child(3) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #b40000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.3s infinite linear;
+  -moz-animation: shapeColor 3s 0.3s infinite linear;
+  -o-animation: shapeColor 3s 0.3s infinite linear;
+  -ms-animation: shapeColor 3s 0.3s infinite linear;
+  animation: shapeColor 3s 0.3s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #e30000;
+  }
+  50% {
+    background-color: #db0000;
+  }
+  100% {
+    background-color: #e30000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #e30000;
+  }
+  50% {
+    background-color: #db0000;
+  }
+  100% {
+    background-color: #e30000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #e30000;
+  }
+  50% {
+    background-color: #db0000;
+  }
+  100% {
+    background-color: #e30000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #e30000;
+  }
+  50% {
+    background-color: #db0000;
+  }
+  100% {
+    background-color: #e30000;
+  }
+}
+.shape-contain:nth-child(4) {
+  -webkit-transform: translate(-50%, -50%) rotate(48deg);
+  -moz-transform: translate(-50%, -50%) rotate(48deg);
+  -o-transform: translate(-50%, -50%) rotate(48deg);
+  -ms-transform: translate(-50%, -50%) rotate(48deg);
+  transform: translate(-50%, -50%) rotate(48deg);
+}
+.shape-contain:nth-child(4) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #b00000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.4s infinite linear;
+  -moz-animation: shapeColor 3s 0.4s infinite linear;
+  -o-animation: shapeColor 3s 0.4s infinite linear;
+  -ms-animation: shapeColor 3s 0.4s infinite linear;
+  animation: shapeColor 3s 0.4s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #de0000;
+  }
+  50% {
+    background-color: #d40000;
+  }
+  100% {
+    background-color: #de0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #de0000;
+  }
+  50% {
+    background-color: #d40000;
+  }
+  100% {
+    background-color: #de0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #de0000;
+  }
+  50% {
+    background-color: #d40000;
+  }
+  100% {
+    background-color: #de0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #de0000;
+  }
+  50% {
+    background-color: #d40000;
+  }
+  100% {
+    background-color: #de0000;
+  }
+}
+.shape-contain:nth-child(5) {
+  -webkit-transform: translate(-50%, -50%) rotate(60deg);
+  -moz-transform: translate(-50%, -50%) rotate(60deg);
+  -o-transform: translate(-50%, -50%) rotate(60deg);
+  -ms-transform: translate(-50%, -50%) rotate(60deg);
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+.shape-contain:nth-child(5) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #ab0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.5s infinite linear;
+  -moz-animation: shapeColor 3s 0.5s infinite linear;
+  -o-animation: shapeColor 3s 0.5s infinite linear;
+  -ms-animation: shapeColor 3s 0.5s infinite linear;
+  animation: shapeColor 3s 0.5s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #d90000;
+  }
+  50% {
+    background-color: #c00;
+  }
+  100% {
+    background-color: #d90000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #d90000;
+  }
+  50% {
+    background-color: #c00;
+  }
+  100% {
+    background-color: #d90000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #d90000;
+  }
+  50% {
+    background-color: #c00;
+  }
+  100% {
+    background-color: #d90000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #d90000;
+  }
+  50% {
+    background-color: #c00;
+  }
+  100% {
+    background-color: #d90000;
+  }
+}
+.shape-contain:nth-child(6) {
+  -webkit-transform: translate(-50%, -50%) rotate(72deg);
+  -moz-transform: translate(-50%, -50%) rotate(72deg);
+  -o-transform: translate(-50%, -50%) rotate(72deg);
+  -ms-transform: translate(-50%, -50%) rotate(72deg);
+  transform: translate(-50%, -50%) rotate(72deg);
+}
+.shape-contain:nth-child(6) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #a60000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.6s infinite linear;
+  -moz-animation: shapeColor 3s 0.6s infinite linear;
+  -o-animation: shapeColor 3s 0.6s infinite linear;
+  -ms-animation: shapeColor 3s 0.6s infinite linear;
+  animation: shapeColor 3s 0.6s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #d40000;
+  }
+  50% {
+    background-color: #c40000;
+  }
+  100% {
+    background-color: #d40000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #d40000;
+  }
+  50% {
+    background-color: #c40000;
+  }
+  100% {
+    background-color: #d40000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #d40000;
+  }
+  50% {
+    background-color: #c40000;
+  }
+  100% {
+    background-color: #d40000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #d40000;
+  }
+  50% {
+    background-color: #c40000;
+  }
+  100% {
+    background-color: #d40000;
+  }
+}
+.shape-contain:nth-child(7) {
+  -webkit-transform: translate(-50%, -50%) rotate(84deg);
+  -moz-transform: translate(-50%, -50%) rotate(84deg);
+  -o-transform: translate(-50%, -50%) rotate(84deg);
+  -ms-transform: translate(-50%, -50%) rotate(84deg);
+  transform: translate(-50%, -50%) rotate(84deg);
+}
+.shape-contain:nth-child(7) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #a20000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.7s infinite linear;
+  -moz-animation: shapeColor 3s 0.7s infinite linear;
+  -o-animation: shapeColor 3s 0.7s infinite linear;
+  -ms-animation: shapeColor 3s 0.7s infinite linear;
+  animation: shapeColor 3s 0.7s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #cf0000;
+  }
+  50% {
+    background-color: #bd0000;
+  }
+  100% {
+    background-color: #cf0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #cf0000;
+  }
+  50% {
+    background-color: #bd0000;
+  }
+  100% {
+    background-color: #cf0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #cf0000;
+  }
+  50% {
+    background-color: #bd0000;
+  }
+  100% {
+    background-color: #cf0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #cf0000;
+  }
+  50% {
+    background-color: #bd0000;
+  }
+  100% {
+    background-color: #cf0000;
+  }
+}
+.shape-contain:nth-child(8) {
+  -webkit-transform: translate(-50%, -50%) rotate(96deg);
+  -moz-transform: translate(-50%, -50%) rotate(96deg);
+  -o-transform: translate(-50%, -50%) rotate(96deg);
+  -ms-transform: translate(-50%, -50%) rotate(96deg);
+  transform: translate(-50%, -50%) rotate(96deg);
+}
+.shape-contain:nth-child(8) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #9d0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.8s infinite linear;
+  -moz-animation: shapeColor 3s 0.8s infinite linear;
+  -o-animation: shapeColor 3s 0.8s infinite linear;
+  -ms-animation: shapeColor 3s 0.8s infinite linear;
+  animation: shapeColor 3s 0.8s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #c90000;
+  }
+  50% {
+    background-color: #b50000;
+  }
+  100% {
+    background-color: #c90000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #c90000;
+  }
+  50% {
+    background-color: #b50000;
+  }
+  100% {
+    background-color: #c90000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #c90000;
+  }
+  50% {
+    background-color: #b50000;
+  }
+  100% {
+    background-color: #c90000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #c90000;
+  }
+  50% {
+    background-color: #b50000;
+  }
+  100% {
+    background-color: #c90000;
+  }
+}
+.shape-contain:nth-child(9) {
+  -webkit-transform: translate(-50%, -50%) rotate(108deg);
+  -moz-transform: translate(-50%, -50%) rotate(108deg);
+  -o-transform: translate(-50%, -50%) rotate(108deg);
+  -ms-transform: translate(-50%, -50%) rotate(108deg);
+  transform: translate(-50%, -50%) rotate(108deg);
+}
+.shape-contain:nth-child(9) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #980000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 0.9s infinite linear;
+  -moz-animation: shapeColor 3s 0.9s infinite linear;
+  -o-animation: shapeColor 3s 0.9s infinite linear;
+  -ms-animation: shapeColor 3s 0.9s infinite linear;
+  animation: shapeColor 3s 0.9s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #c40000;
+  }
+  50% {
+    background-color: #ad0000;
+  }
+  100% {
+    background-color: #c40000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #c40000;
+  }
+  50% {
+    background-color: #ad0000;
+  }
+  100% {
+    background-color: #c40000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #c40000;
+  }
+  50% {
+    background-color: #ad0000;
+  }
+  100% {
+    background-color: #c40000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #c40000;
+  }
+  50% {
+    background-color: #ad0000;
+  }
+  100% {
+    background-color: #c40000;
+  }
+}
+.shape-contain:nth-child(10) {
+  -webkit-transform: translate(-50%, -50%) rotate(120deg);
+  -moz-transform: translate(-50%, -50%) rotate(120deg);
+  -o-transform: translate(-50%, -50%) rotate(120deg);
+  -ms-transform: translate(-50%, -50%) rotate(120deg);
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+.shape-contain:nth-child(10) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #940000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1s infinite linear;
+  -moz-animation: shapeColor 3s 1s infinite linear;
+  -o-animation: shapeColor 3s 1s infinite linear;
+  -ms-animation: shapeColor 3s 1s infinite linear;
+  animation: shapeColor 3s 1s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #bf0000;
+  }
+  50% {
+    background-color: #a60000;
+  }
+  100% {
+    background-color: #bf0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #bf0000;
+  }
+  50% {
+    background-color: #a60000;
+  }
+  100% {
+    background-color: #bf0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #bf0000;
+  }
+  50% {
+    background-color: #a60000;
+  }
+  100% {
+    background-color: #bf0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #bf0000;
+  }
+  50% {
+    background-color: #a60000;
+  }
+  100% {
+    background-color: #bf0000;
+  }
+}
+.shape-contain:nth-child(11) {
+  -webkit-transform: translate(-50%, -50%) rotate(132deg);
+  -moz-transform: translate(-50%, -50%) rotate(132deg);
+  -o-transform: translate(-50%, -50%) rotate(132deg);
+  -ms-transform: translate(-50%, -50%) rotate(132deg);
+  transform: translate(-50%, -50%) rotate(132deg);
+}
+.shape-contain:nth-child(11) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #8f0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.1s infinite linear;
+  -moz-animation: shapeColor 3s 1.1s infinite linear;
+  -o-animation: shapeColor 3s 1.1s infinite linear;
+  -ms-animation: shapeColor 3s 1.1s infinite linear;
+  animation: shapeColor 3s 1.1s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #ba0000;
+  }
+  50% {
+    background-color: #9e0000;
+  }
+  100% {
+    background-color: #ba0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #ba0000;
+  }
+  50% {
+    background-color: #9e0000;
+  }
+  100% {
+    background-color: #ba0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #ba0000;
+  }
+  50% {
+    background-color: #9e0000;
+  }
+  100% {
+    background-color: #ba0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #ba0000;
+  }
+  50% {
+    background-color: #9e0000;
+  }
+  100% {
+    background-color: #ba0000;
+  }
+}
+.shape-contain:nth-child(12) {
+  -webkit-transform: translate(-50%, -50%) rotate(144deg);
+  -moz-transform: translate(-50%, -50%) rotate(144deg);
+  -o-transform: translate(-50%, -50%) rotate(144deg);
+  -ms-transform: translate(-50%, -50%) rotate(144deg);
+  transform: translate(-50%, -50%) rotate(144deg);
+}
+.shape-contain:nth-child(12) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #8b0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.2s infinite linear;
+  -moz-animation: shapeColor 3s 1.2s infinite linear;
+  -o-animation: shapeColor 3s 1.2s infinite linear;
+  -ms-animation: shapeColor 3s 1.2s infinite linear;
+  animation: shapeColor 3s 1.2s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #b50000;
+  }
+  50% {
+    background-color: #960000;
+  }
+  100% {
+    background-color: #b50000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #b50000;
+  }
+  50% {
+    background-color: #960000;
+  }
+  100% {
+    background-color: #b50000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #b50000;
+  }
+  50% {
+    background-color: #960000;
+  }
+  100% {
+    background-color: #b50000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #b50000;
+  }
+  50% {
+    background-color: #960000;
+  }
+  100% {
+    background-color: #b50000;
+  }
+}
+.shape-contain:nth-child(13) {
+  -webkit-transform: translate(-50%, -50%) rotate(156deg);
+  -moz-transform: translate(-50%, -50%) rotate(156deg);
+  -o-transform: translate(-50%, -50%) rotate(156deg);
+  -ms-transform: translate(-50%, -50%) rotate(156deg);
+  transform: translate(-50%, -50%) rotate(156deg);
+}
+.shape-contain:nth-child(13) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #860000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.3s infinite linear;
+  -moz-animation: shapeColor 3s 1.3s infinite linear;
+  -o-animation: shapeColor 3s 1.3s infinite linear;
+  -ms-animation: shapeColor 3s 1.3s infinite linear;
+  animation: shapeColor 3s 1.3s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #b00000;
+  }
+  50% {
+    background-color: #8f0000;
+  }
+  100% {
+    background-color: #b00000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #b00000;
+  }
+  50% {
+    background-color: #8f0000;
+  }
+  100% {
+    background-color: #b00000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #b00000;
+  }
+  50% {
+    background-color: #8f0000;
+  }
+  100% {
+    background-color: #b00000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #b00000;
+  }
+  50% {
+    background-color: #8f0000;
+  }
+  100% {
+    background-color: #b00000;
+  }
+}
+.shape-contain:nth-child(14) {
+  -webkit-transform: translate(-50%, -50%) rotate(168deg);
+  -moz-transform: translate(-50%, -50%) rotate(168deg);
+  -o-transform: translate(-50%, -50%) rotate(168deg);
+  -ms-transform: translate(-50%, -50%) rotate(168deg);
+  transform: translate(-50%, -50%) rotate(168deg);
+}
+.shape-contain:nth-child(14) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #810000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.4s infinite linear;
+  -moz-animation: shapeColor 3s 1.4s infinite linear;
+  -o-animation: shapeColor 3s 1.4s infinite linear;
+  -ms-animation: shapeColor 3s 1.4s infinite linear;
+  animation: shapeColor 3s 1.4s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #ab0000;
+  }
+  50% {
+    background-color: #870000;
+  }
+  100% {
+    background-color: #ab0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #ab0000;
+  }
+  50% {
+    background-color: #870000;
+  }
+  100% {
+    background-color: #ab0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #ab0000;
+  }
+  50% {
+    background-color: #870000;
+  }
+  100% {
+    background-color: #ab0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #ab0000;
+  }
+  50% {
+    background-color: #870000;
+  }
+  100% {
+    background-color: #ab0000;
+  }
+}
+.shape-contain:nth-child(15) {
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+  -moz-transform: translate(-50%, -50%) rotate(180deg);
+  -o-transform: translate(-50%, -50%) rotate(180deg);
+  -ms-transform: translate(-50%, -50%) rotate(180deg);
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.shape-contain:nth-child(15) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #7d0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.5s infinite linear;
+  -moz-animation: shapeColor 3s 1.5s infinite linear;
+  -o-animation: shapeColor 3s 1.5s infinite linear;
+  -ms-animation: shapeColor 3s 1.5s infinite linear;
+  animation: shapeColor 3s 1.5s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #a60000;
+  }
+  50% {
+    background-color: #800000;
+  }
+  100% {
+    background-color: #a60000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #a60000;
+  }
+  50% {
+    background-color: #800000;
+  }
+  100% {
+    background-color: #a60000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #a60000;
+  }
+  50% {
+    background-color: #800000;
+  }
+  100% {
+    background-color: #a60000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #a60000;
+  }
+  50% {
+    background-color: #800000;
+  }
+  100% {
+    background-color: #a60000;
+  }
+}
+.shape-contain:nth-child(16) {
+  -webkit-transform: translate(-50%, -50%) rotate(192deg);
+  -moz-transform: translate(-50%, -50%) rotate(192deg);
+  -o-transform: translate(-50%, -50%) rotate(192deg);
+  -ms-transform: translate(-50%, -50%) rotate(192deg);
+  transform: translate(-50%, -50%) rotate(192deg);
+}
+.shape-contain:nth-child(16) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #780000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.6s infinite linear;
+  -moz-animation: shapeColor 3s 1.6s infinite linear;
+  -o-animation: shapeColor 3s 1.6s infinite linear;
+  -ms-animation: shapeColor 3s 1.6s infinite linear;
+  animation: shapeColor 3s 1.6s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #a10000;
+  }
+  50% {
+    background-color: #780000;
+  }
+  100% {
+    background-color: #a10000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #a10000;
+  }
+  50% {
+    background-color: #780000;
+  }
+  100% {
+    background-color: #a10000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #a10000;
+  }
+  50% {
+    background-color: #780000;
+  }
+  100% {
+    background-color: #a10000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #a10000;
+  }
+  50% {
+    background-color: #780000;
+  }
+  100% {
+    background-color: #a10000;
+  }
+}
+.shape-contain:nth-child(17) {
+  -webkit-transform: translate(-50%, -50%) rotate(204deg);
+  -moz-transform: translate(-50%, -50%) rotate(204deg);
+  -o-transform: translate(-50%, -50%) rotate(204deg);
+  -ms-transform: translate(-50%, -50%) rotate(204deg);
+  transform: translate(-50%, -50%) rotate(204deg);
+}
+.shape-contain:nth-child(17) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #740000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.7s infinite linear;
+  -moz-animation: shapeColor 3s 1.7s infinite linear;
+  -o-animation: shapeColor 3s 1.7s infinite linear;
+  -ms-animation: shapeColor 3s 1.7s infinite linear;
+  animation: shapeColor 3s 1.7s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #9c0000;
+  }
+  50% {
+    background-color: #700000;
+  }
+  100% {
+    background-color: #9c0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #9c0000;
+  }
+  50% {
+    background-color: #700000;
+  }
+  100% {
+    background-color: #9c0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #9c0000;
+  }
+  50% {
+    background-color: #700000;
+  }
+  100% {
+    background-color: #9c0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #9c0000;
+  }
+  50% {
+    background-color: #700000;
+  }
+  100% {
+    background-color: #9c0000;
+  }
+}
+.shape-contain:nth-child(18) {
+  -webkit-transform: translate(-50%, -50%) rotate(216deg);
+  -moz-transform: translate(-50%, -50%) rotate(216deg);
+  -o-transform: translate(-50%, -50%) rotate(216deg);
+  -ms-transform: translate(-50%, -50%) rotate(216deg);
+  transform: translate(-50%, -50%) rotate(216deg);
+}
+.shape-contain:nth-child(18) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #6f0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.8s infinite linear;
+  -moz-animation: shapeColor 3s 1.8s infinite linear;
+  -o-animation: shapeColor 3s 1.8s infinite linear;
+  -ms-animation: shapeColor 3s 1.8s infinite linear;
+  animation: shapeColor 3s 1.8s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #960000;
+  }
+  50% {
+    background-color: #690000;
+  }
+  100% {
+    background-color: #960000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #960000;
+  }
+  50% {
+    background-color: #690000;
+  }
+  100% {
+    background-color: #960000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #960000;
+  }
+  50% {
+    background-color: #690000;
+  }
+  100% {
+    background-color: #960000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #960000;
+  }
+  50% {
+    background-color: #690000;
+  }
+  100% {
+    background-color: #960000;
+  }
+}
+.shape-contain:nth-child(19) {
+  -webkit-transform: translate(-50%, -50%) rotate(228deg);
+  -moz-transform: translate(-50%, -50%) rotate(228deg);
+  -o-transform: translate(-50%, -50%) rotate(228deg);
+  -ms-transform: translate(-50%, -50%) rotate(228deg);
+  transform: translate(-50%, -50%) rotate(228deg);
+}
+.shape-contain:nth-child(19) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #6a0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 1.9s infinite linear;
+  -moz-animation: shapeColor 3s 1.9s infinite linear;
+  -o-animation: shapeColor 3s 1.9s infinite linear;
+  -ms-animation: shapeColor 3s 1.9s infinite linear;
+  animation: shapeColor 3s 1.9s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #910000;
+  }
+  50% {
+    background-color: #610000;
+  }
+  100% {
+    background-color: #910000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #910000;
+  }
+  50% {
+    background-color: #610000;
+  }
+  100% {
+    background-color: #910000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #910000;
+  }
+  50% {
+    background-color: #610000;
+  }
+  100% {
+    background-color: #910000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #910000;
+  }
+  50% {
+    background-color: #610000;
+  }
+  100% {
+    background-color: #910000;
+  }
+}
+.shape-contain:nth-child(20) {
+  -webkit-transform: translate(-50%, -50%) rotate(240deg);
+  -moz-transform: translate(-50%, -50%) rotate(240deg);
+  -o-transform: translate(-50%, -50%) rotate(240deg);
+  -ms-transform: translate(-50%, -50%) rotate(240deg);
+  transform: translate(-50%, -50%) rotate(240deg);
+}
+.shape-contain:nth-child(20) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #600;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2s infinite linear;
+  -moz-animation: shapeColor 3s 2s infinite linear;
+  -o-animation: shapeColor 3s 2s infinite linear;
+  -ms-animation: shapeColor 3s 2s infinite linear;
+  animation: shapeColor 3s 2s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #8c0000;
+  }
+  50% {
+    background-color: #590000;
+  }
+  100% {
+    background-color: #8c0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #8c0000;
+  }
+  50% {
+    background-color: #590000;
+  }
+  100% {
+    background-color: #8c0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #8c0000;
+  }
+  50% {
+    background-color: #590000;
+  }
+  100% {
+    background-color: #8c0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #8c0000;
+  }
+  50% {
+    background-color: #590000;
+  }
+  100% {
+    background-color: #8c0000;
+  }
+}
+.shape-contain:nth-child(21) {
+  -webkit-transform: translate(-50%, -50%) rotate(252deg);
+  -moz-transform: translate(-50%, -50%) rotate(252deg);
+  -o-transform: translate(-50%, -50%) rotate(252deg);
+  -ms-transform: translate(-50%, -50%) rotate(252deg);
+  transform: translate(-50%, -50%) rotate(252deg);
+}
+.shape-contain:nth-child(21) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #610000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.1s infinite linear;
+  -moz-animation: shapeColor 3s 2.1s infinite linear;
+  -o-animation: shapeColor 3s 2.1s infinite linear;
+  -ms-animation: shapeColor 3s 2.1s infinite linear;
+  animation: shapeColor 3s 2.1s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #870000;
+  }
+  50% {
+    background-color: #520000;
+  }
+  100% {
+    background-color: #870000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #870000;
+  }
+  50% {
+    background-color: #520000;
+  }
+  100% {
+    background-color: #870000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #870000;
+  }
+  50% {
+    background-color: #520000;
+  }
+  100% {
+    background-color: #870000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #870000;
+  }
+  50% {
+    background-color: #520000;
+  }
+  100% {
+    background-color: #870000;
+  }
+}
+.shape-contain:nth-child(22) {
+  -webkit-transform: translate(-50%, -50%) rotate(264deg);
+  -moz-transform: translate(-50%, -50%) rotate(264deg);
+  -o-transform: translate(-50%, -50%) rotate(264deg);
+  -ms-transform: translate(-50%, -50%) rotate(264deg);
+  transform: translate(-50%, -50%) rotate(264deg);
+}
+.shape-contain:nth-child(22) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #5c0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.2s infinite linear;
+  -moz-animation: shapeColor 3s 2.2s infinite linear;
+  -o-animation: shapeColor 3s 2.2s infinite linear;
+  -ms-animation: shapeColor 3s 2.2s infinite linear;
+  animation: shapeColor 3s 2.2s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #820000;
+  }
+  50% {
+    background-color: #4a0000;
+  }
+  100% {
+    background-color: #820000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #820000;
+  }
+  50% {
+    background-color: #4a0000;
+  }
+  100% {
+    background-color: #820000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #820000;
+  }
+  50% {
+    background-color: #4a0000;
+  }
+  100% {
+    background-color: #820000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #820000;
+  }
+  50% {
+    background-color: #4a0000;
+  }
+  100% {
+    background-color: #820000;
+  }
+}
+.shape-contain:nth-child(23) {
+  -webkit-transform: translate(-50%, -50%) rotate(276deg);
+  -moz-transform: translate(-50%, -50%) rotate(276deg);
+  -o-transform: translate(-50%, -50%) rotate(276deg);
+  -ms-transform: translate(-50%, -50%) rotate(276deg);
+  transform: translate(-50%, -50%) rotate(276deg);
+}
+.shape-contain:nth-child(23) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #580000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.3s infinite linear;
+  -moz-animation: shapeColor 3s 2.3s infinite linear;
+  -o-animation: shapeColor 3s 2.3s infinite linear;
+  -ms-animation: shapeColor 3s 2.3s infinite linear;
+  animation: shapeColor 3s 2.3s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #7d0000;
+  }
+  50% {
+    background-color: #420000;
+  }
+  100% {
+    background-color: #7d0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #7d0000;
+  }
+  50% {
+    background-color: #420000;
+  }
+  100% {
+    background-color: #7d0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #7d0000;
+  }
+  50% {
+    background-color: #420000;
+  }
+  100% {
+    background-color: #7d0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #7d0000;
+  }
+  50% {
+    background-color: #420000;
+  }
+  100% {
+    background-color: #7d0000;
+  }
+}
+.shape-contain:nth-child(24) {
+  -webkit-transform: translate(-50%, -50%) rotate(288deg);
+  -moz-transform: translate(-50%, -50%) rotate(288deg);
+  -o-transform: translate(-50%, -50%) rotate(288deg);
+  -ms-transform: translate(-50%, -50%) rotate(288deg);
+  transform: translate(-50%, -50%) rotate(288deg);
+}
+.shape-contain:nth-child(24) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #530000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.4s infinite linear;
+  -moz-animation: shapeColor 3s 2.4s infinite linear;
+  -o-animation: shapeColor 3s 2.4s infinite linear;
+  -ms-animation: shapeColor 3s 2.4s infinite linear;
+  animation: shapeColor 3s 2.4s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #780000;
+  }
+  50% {
+    background-color: #3b0000;
+  }
+  100% {
+    background-color: #780000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #780000;
+  }
+  50% {
+    background-color: #3b0000;
+  }
+  100% {
+    background-color: #780000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #780000;
+  }
+  50% {
+    background-color: #3b0000;
+  }
+  100% {
+    background-color: #780000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #780000;
+  }
+  50% {
+    background-color: #3b0000;
+  }
+  100% {
+    background-color: #780000;
+  }
+}
+.shape-contain:nth-child(25) {
+  -webkit-transform: translate(-50%, -50%) rotate(300deg);
+  -moz-transform: translate(-50%, -50%) rotate(300deg);
+  -o-transform: translate(-50%, -50%) rotate(300deg);
+  -ms-transform: translate(-50%, -50%) rotate(300deg);
+  transform: translate(-50%, -50%) rotate(300deg);
+}
+.shape-contain:nth-child(25) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #4f0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.5s infinite linear;
+  -moz-animation: shapeColor 3s 2.5s infinite linear;
+  -o-animation: shapeColor 3s 2.5s infinite linear;
+  -ms-animation: shapeColor 3s 2.5s infinite linear;
+  animation: shapeColor 3s 2.5s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #730000;
+  }
+  50% {
+    background-color: #300;
+  }
+  100% {
+    background-color: #730000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #730000;
+  }
+  50% {
+    background-color: #300;
+  }
+  100% {
+    background-color: #730000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #730000;
+  }
+  50% {
+    background-color: #300;
+  }
+  100% {
+    background-color: #730000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #730000;
+  }
+  50% {
+    background-color: #300;
+  }
+  100% {
+    background-color: #730000;
+  }
+}
+.shape-contain:nth-child(26) {
+  -webkit-transform: translate(-50%, -50%) rotate(312deg);
+  -moz-transform: translate(-50%, -50%) rotate(312deg);
+  -o-transform: translate(-50%, -50%) rotate(312deg);
+  -ms-transform: translate(-50%, -50%) rotate(312deg);
+  transform: translate(-50%, -50%) rotate(312deg);
+}
+.shape-contain:nth-child(26) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #4a0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.6s infinite linear;
+  -moz-animation: shapeColor 3s 2.6s infinite linear;
+  -o-animation: shapeColor 3s 2.6s infinite linear;
+  -ms-animation: shapeColor 3s 2.6s infinite linear;
+  animation: shapeColor 3s 2.6s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #6e0000;
+  }
+  50% {
+    background-color: #2b0000;
+  }
+  100% {
+    background-color: #6e0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #6e0000;
+  }
+  50% {
+    background-color: #2b0000;
+  }
+  100% {
+    background-color: #6e0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #6e0000;
+  }
+  50% {
+    background-color: #2b0000;
+  }
+  100% {
+    background-color: #6e0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #6e0000;
+  }
+  50% {
+    background-color: #2b0000;
+  }
+  100% {
+    background-color: #6e0000;
+  }
+}
+.shape-contain:nth-child(27) {
+  -webkit-transform: translate(-50%, -50%) rotate(324deg);
+  -moz-transform: translate(-50%, -50%) rotate(324deg);
+  -o-transform: translate(-50%, -50%) rotate(324deg);
+  -ms-transform: translate(-50%, -50%) rotate(324deg);
+  transform: translate(-50%, -50%) rotate(324deg);
+}
+.shape-contain:nth-child(27) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #450000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.7s infinite linear;
+  -moz-animation: shapeColor 3s 2.7s infinite linear;
+  -o-animation: shapeColor 3s 2.7s infinite linear;
+  -ms-animation: shapeColor 3s 2.7s infinite linear;
+  animation: shapeColor 3s 2.7s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #690000;
+  }
+  50% {
+    background-color: #240000;
+  }
+  100% {
+    background-color: #690000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #690000;
+  }
+  50% {
+    background-color: #240000;
+  }
+  100% {
+    background-color: #690000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #690000;
+  }
+  50% {
+    background-color: #240000;
+  }
+  100% {
+    background-color: #690000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #690000;
+  }
+  50% {
+    background-color: #240000;
+  }
+  100% {
+    background-color: #690000;
+  }
+}
+.shape-contain:nth-child(28) {
+  -webkit-transform: translate(-50%, -50%) rotate(336deg);
+  -moz-transform: translate(-50%, -50%) rotate(336deg);
+  -o-transform: translate(-50%, -50%) rotate(336deg);
+  -ms-transform: translate(-50%, -50%) rotate(336deg);
+  transform: translate(-50%, -50%) rotate(336deg);
+}
+.shape-contain:nth-child(28) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #410000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.8s infinite linear;
+  -moz-animation: shapeColor 3s 2.8s infinite linear;
+  -o-animation: shapeColor 3s 2.8s infinite linear;
+  -ms-animation: shapeColor 3s 2.8s infinite linear;
+  animation: shapeColor 3s 2.8s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #630000;
+  }
+  50% {
+    background-color: #1c0000;
+  }
+  100% {
+    background-color: #630000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #630000;
+  }
+  50% {
+    background-color: #1c0000;
+  }
+  100% {
+    background-color: #630000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #630000;
+  }
+  50% {
+    background-color: #1c0000;
+  }
+  100% {
+    background-color: #630000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #630000;
+  }
+  50% {
+    background-color: #1c0000;
+  }
+  100% {
+    background-color: #630000;
+  }
+}
+.shape-contain:nth-child(29) {
+  -webkit-transform: translate(-50%, -50%) rotate(348deg);
+  -moz-transform: translate(-50%, -50%) rotate(348deg);
+  -o-transform: translate(-50%, -50%) rotate(348deg);
+  -ms-transform: translate(-50%, -50%) rotate(348deg);
+  transform: translate(-50%, -50%) rotate(348deg);
+}
+.shape-contain:nth-child(29) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #3c0000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 2.9s infinite linear;
+  -moz-animation: shapeColor 3s 2.9s infinite linear;
+  -o-animation: shapeColor 3s 2.9s infinite linear;
+  -ms-animation: shapeColor 3s 2.9s infinite linear;
+  animation: shapeColor 3s 2.9s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #5e0000;
+  }
+  50% {
+    background-color: #140000;
+  }
+  100% {
+    background-color: #5e0000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #5e0000;
+  }
+  50% {
+    background-color: #140000;
+  }
+  100% {
+    background-color: #5e0000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #5e0000;
+  }
+  50% {
+    background-color: #140000;
+  }
+  100% {
+    background-color: #5e0000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #5e0000;
+  }
+  50% {
+    background-color: #140000;
+  }
+  100% {
+    background-color: #5e0000;
+  }
+}
+.shape-contain:nth-child(30) {
+  -webkit-transform: translate(-50%, -50%) rotate(360deg);
+  -moz-transform: translate(-50%, -50%) rotate(360deg);
+  -o-transform: translate(-50%, -50%) rotate(360deg);
+  -ms-transform: translate(-50%, -50%) rotate(360deg);
+  transform: translate(-50%, -50%) rotate(360deg);
+}
+.shape-contain:nth-child(30) .shape {
+  width: 100%;
+  height: 100%;
+  background-color: #370000;
+  -webkit-clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  clip-path: polygon(0 10.2%, 50% 50%, 10.2% 0%);
+  -webkit-animation: shapeColor 3s 3s infinite linear;
+  -moz-animation: shapeColor 3s 3s infinite linear;
+  -o-animation: shapeColor 3s 3s infinite linear;
+  -ms-animation: shapeColor 3s 3s infinite linear;
+  animation: shapeColor 3s 3s infinite linear;
+}
+@-moz-keyframes shapeColor {
+  0% {
+    background-color: #590000;
+  }
+  50% {
+    background-color: #0d0000;
+  }
+  100% {
+    background-color: #590000;
+  }
+}
+@-webkit-keyframes shapeColor {
+  0% {
+    background-color: #590000;
+  }
+  50% {
+    background-color: #0d0000;
+  }
+  100% {
+    background-color: #590000;
+  }
+}
+@-o-keyframes shapeColor {
+  0% {
+    background-color: #590000;
+  }
+  50% {
+    background-color: #0d0000;
+  }
+  100% {
+    background-color: #590000;
+  }
+}
+@keyframes shapeColor {
+  0% {
+    background-color: #590000;
+  }
+  50% {
+    background-color: #0d0000;
+  }
+  100% {
+    background-color: #590000;
+  }
+}
+@media (max-width: 1200px) {
+  .loading {
+    display: none;
+  }
+}
+/* =======header ========= */
+#menu-outer {
+  width: 100%;
+  background: #1a1a1d;
+  zoom: 1;
+}
+#menu-outer:before,
+#menu-outer:after {
+  content: "";
+  display: table;
+}
+#menu-outer:after {
+  clear: both;
+}
+#menu-inner {
+  display: block;
+  width: 1200px;
+  margin: 0 auto;
+  zoom: 1;
+}
+#menu-inner:before,
+#menu-inner:after {
+  content: "";
+  display: table;
+}
+#menu-inner:after {
+  clear: both;
+}
+#menu-inner a {
+  color: #e70000;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 60px;
+  float: left;
+  position: relative;
+  width: 100px;
+  text-align: center;
+}
+#menu-inner a:hover {
+  background: #000;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  -o-transition: background 0.3s ease-in-out;
+  -ms-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+#menu-inner a .logo {
+  position: absolute;
+  font-size: 30px;
+  line-height: 60px;
+  top: 0;
+  left: 0;
+  width: 120px;
+  background: #1a1a1d;
+}
+/*===========content=========*/
+#content-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  top: 60px;
+}
+#content-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+#recent-posts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  height: inherit;
+  background: #f1f1f1;
+}
+.front-post {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #3c3f41;
+}
+.front-post .recent-post-parm {
+  z-index: 5;
+  position: absolute;
+  width: 700px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 50px;
+  color: #e70000;
+}
+.front-post .recent-post-parm h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e70000;
+}
+.front-post .recent-post-parm a {
+  display: block;
+  text-decoration: none;
+  font-size: 50px;
+  font-weight: bold;
+  background: url("../img/repeat-white.png") center center repeat;
+  -webkit-background-size: 80px 60px;
+  -moz-background-size: 80px 60px;
+  background-size: 80px 60px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: scratchy 0.253s linear forwards infinite;
+  -moz-animation: scratchy 0.253s linear forwards infinite;
+  -o-animation: scratchy 0.253s linear forwards infinite;
+  -ms-animation: scratchy 0.253s linear forwards infinite;
+  animation: scratchy 0.253s linear forwards infinite;
+}
+.front-post .recent-post-parm time {
+  font-size: 15px;
+}
+.border {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+.border > div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.border .frames div {
+  background: url("../img/border.svg") repeat-x 50% 50%;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.border .frames div:nth-child(2),
+.border .frames div:nth-child(4) {
+  width: 20px;
+  height: 100%;
+  background: url("../img/border-vert.svg") repeat-y 50% 50%;
+}
+.border .frames div:nth-child(3) {
+  bottom: 0;
+  top: auto;
+}
+.border .frames div:nth-child(3),
+.border .frames div:nth-child(4) {
+  -webkit-transform: rotate(179.99deg);
+  -moz-transform: rotate(179.99deg);
+  -o-transform: rotate(179.99deg);
+  -ms-transform: rotate(179.99deg);
+  transform: rotate(179.99deg);
+}
+.border .frames div:nth-child(4) {
+  right: 0;
+  left: auto;
+}
+/*=============post content==============*/
+#post {
+  width: 80%;
+  margin: 0 auto;
+}
+#archive {
+  width: 80%;
+  margin: 50px auto;
+}
+/*===========pagination======*/
+#pagination {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.post-pagin {
+  z-index: 5;
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  width: 50px;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.post-pagin li {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+.post-pagin li a {
+  text-decoration: none;
+}
+.post-pagin li i {
+  font-size: 40px;
+  color: #000;
+  line-height: 50px;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+.pre-post,
+.next-post {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.pre-post:hover i,
+.next-post:hover i {
+  font-size: 45px;
+}
+/*===========footer==========*/
+#bottom-outer {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  text-transform: capitalize;
+  color: #e70000;
+}
+@-moz-keyframes loadingBack {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@-webkit-keyframes loadingBack {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes loadingBack {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes loadingBack {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@-moz-keyframes spanShow {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  to {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-webkit-keyframes spanShow {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  to {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-o-keyframes spanShow {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  to {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@keyframes spanShow {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  to {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-moz-keyframes scratchy {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+}
+@-webkit-keyframes scratchy {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+}
+@-o-keyframes scratchy {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+}
+@keyframes scratchy {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  26% {
+    background-position: 20px -20px;
+  }
+  50% {
+    background-position: 20px -20px;
+  }
+  51% {
+    background-position: 40px -40px;
+  }
+  75% {
+    background-position: 40px -40px;
+  }
+  76% {
+    background-position: 60px -60px;
+  }
+  99% {
+    background-position: 60px -60px;
+  }
+}

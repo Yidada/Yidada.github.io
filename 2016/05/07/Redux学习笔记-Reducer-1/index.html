@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Redux学习笔记-Reducer(1)Z-INDEX</title>
+  <meta http-equiv="description" content="张达铭-Z-INDEX" />
+  <meta name="description" content="张达铭的个人博客，张达铭的技术作品，张达铭的生活成长" />
+  <meta name="keywords" content="张达铭,张益达,个人博客, 个人网站, web前端,JavaScript,css,html" />
+  <meta name="author" content="张达铭,张益达,zhangdaming,zhangyida" />
+
+
+  <!-- css -->
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/z-index.css">
+    
+  
+</head>
+<body>
+<!-- header -->
+<header id="menu-outer">
+  <nav id="menu-inner">
+    <a href="/">
+      <i class="iconfont logo">&#xe600;</i>
+      Z-INDEX
+    </a>
+    
+      <a href="/">首页</a>
+    
+      <a href="/archives">归档</a>
+    
+  </nav>
+</header>
+
+
+
+<!-- content -->
+
+<article id="content-outer">
+  <div id="content-inner">
+    
+<article class="typo" id="post">
+  <h1>Redux学习笔记-Reducer(1)</h1>
+  <blockquote>
+<p>Reducer</p>
+</blockquote>
+<p>Action只是描述了有事情发生这一事实，并没有说明应用应该如何更新state，所以reducer派上用场了，说白了Reducer就是Action的实现了。</p>
+<blockquote>
+<p>对State的设计</p>
+</blockquote>
+<p>因为Reducer的应用当中，所有的state都是保存在一个单一的对象当中的，所以对于state的结构的设计就比较重要了。</p>
+<p><strong>注意事项</strong><br>在处理Reducer关系时，尽可能地把 state 范式化，不存在嵌套。</p>
+<blockquote>
+<p>Action处理</p>
+</blockquote>
+<p>确定了state的结构之后，就可以开发reducer了。reducer就是一个函数，接受旧的state和action并且返回新的state。</p>
+<pre><code>(previousState, action) =&gt; newState
+</code></pre><p><em>注：</em>这里之所以叫reducer是因为它将被传递给Array.prototype.reduce(reducer,?initialValue)方法，保持reducer纯净非常重要。永远不要在reducer中做以下这些操作：</p>
+<ul>
+<li>修改传入参数</li>
+<li>执行有副作用的操作，例如API请求和路由跳转</li>
+<li>调用非纯函数，如Data.now()或者Math.random()<br>高级篇==当中会介绍为什么不能做这些。现在只要记住</li>
+</ul>
+<p><strong>reducer只要传入参数一样，返回就一定一样。没有特殊情况、没有副作用，没有API请求，没有修改参数，单纯执行计算</strong></p>
+<p>记住以上这些之后就可以开始编写reducer了。<br>在开始时定义默认的state。Redux首次执行的时候，state为undefined，这个时候会返回默认的state。</p>
+<pre><code>function todoApp(state=initialState,action){
+    switch(action.type){
+        case SET_VISIBILITY_FILTER:
+            return Object.assign({},state,{
+                visibilityFilter:action.filter
+            });
+        default:
+            return state;
+    }
+}
+</code></pre><hr>
+<p> 其中Object.assign()函数可能有些陌生，于是百度之，发现是ECMAScript6当中的一个函数</p>
+<pre><code>Object.assign(target,source);
+</code></pre><p>用来将所有可枚举的自由属性从source复制到target.并且返回修改后的target。所以上述的Object.assign({},state,{visibilityFilter:action.filter})可以理解成修改state当中的visibilityFilter属性为当前的action.filter值，然后返回。</p>
+<p>MDN上对于Object.assign()的解释比较完整<br><strong>概述</strong><br>Object.assign() 方法可以把任意多个的源对象所拥有的自身可枚举属性拷贝给目标对象，然后返回目标对象。</p>
+<p><strong>语法：</strong><br>Object.assign(target, …sources)</p>
+<p><strong>描述</strong><br>Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象身上。注意，对于访问器属性，该方法会执行那个访问器属性的 getter 函数，然后把得到的值拷贝给目标对象，如果你想拷贝访问器属性本身，请使用 Object.getOwnPropertyDescriptor() 和 Object.defineProperties() 方法。</p>
+<p>注意，String类型和 Symbol 类型的属性都会被拷贝。</p>
+<p>注意，在属性拷贝过程中可能会产生异常，比如目标对象的某个只读属性和源对象的某个属性同名，这时该方法会抛出一个 TypeError 异常，拷贝过程中断，已经拷贝成功的属性不会受到影响，还未拷贝的属性将不会再被拷贝。</p>
+<p>注意， Object.assign 会跳过那些值为 null 或 undefined 的源对象。</p>
+<hr>
+<p>接着以上state继续<br> <strong><em>注：</em></strong></p>
+<ol>
+<li><strong>不要修改state</strong>。使用Object.assign()新建一个副本。不要这样使用Object.assign(state,{visibilityFilter:action.filter})因为这样就会修改到state的值了，这也是为什么要讲第一个参数target设置为{}。</li>
+<li>在default情况下返回旧的state。遇到未知的action时候也一定要返回旧的state。</li>
+</ol>
+<p><strong>谨记不要在克隆state之前修改它。</strong></p>
+<p>我们得到的Reducer现在长这样：</p>
+<pre><code>function todoApp(state=initialState,action){
+    switch(action.type){
+        case SET_VISIBILITY_FILTER:
+            return Object.assign({},state,{
+                visibilityFilter:action.filter
+            });
+        case ADD_TODO:
+            return Object.assign({},state,{
+                todos:[...state.todos,{
+                    text:action.text,
+                    completed:false
+                }]
+            });
+        case COMPLETE_TODO:
+            return Object.assign({},state,{
+                todos:[
+                    ...state.todos.slice(0,action.index),
+                    Object.assign({},state.todos[action.index],{
+                        completed:true
+                    }),
+                    ...state.todos.slice(action.index+1)
+                ]
+            });
+        default:
+            return state;
+    }
+}
+</code></pre><p>现在要做的是将上诉的代码进行一个优化，使之更加通俗易懂。</p>
+<pre><code>function todos(state = [], action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return [...state, {
+        text: action.text,
+        completed: false
+      }];
+    case COMPLETE_TODO:
+      return [
+        ...state.slice(0, action.index),
+        Object.assign({}, state[action.index], {
+          completed: true
+        }),
+        ...state.slice(action.index + 1)
+      ];
+    default:
+      return state;
+  }
+}
+
+function todoApp(state = initialState, action) {
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return Object.assign({}, state, {
+        visibilityFilter: action.filter
+      });
+    case ADD_TODO:
+    case COMPLETE_TODO:
+      return Object.assign({}, state, {
+        todos: todos(state.todos, action)
+      });
+    default:
+      return state;
+  }
+}
+</code></pre>
+</article>
+<div style="clear:both"></div>
+
+<!--<nav id="pagination">-->
+  <!---->
+    <!--<a href="/2016/05/07/利用node创建简单的RESTful的API/" class="prev">&larr; Prev</a>-->
+  <!---->
+
+  <!---->
+
+  <!---->
+    <!--<a href="/2016/05/07/generator-学习笔记/" class="next">Next &rarr;</a>-->
+  <!---->
+<!--</nav>-->
+
+
+  </div>
+</article>
+
+
+<!-- footer -->
+
+
+
+
+
+<!-- js -->
+
+  <!-- scripts list from theme config.yml -->
+  
+    <script src="/js/zepto.js"></script>
+  
+    <script src="/js/z-index.js"></script>
+  
+
+
+</body>
+</html>
