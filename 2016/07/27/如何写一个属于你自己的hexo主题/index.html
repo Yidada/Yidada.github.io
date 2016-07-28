@@ -75,8 +75,25 @@
 <p>主要提下layout文件夹里面的ejs文件，有一个layout.ejs这个是所有页面的主页面，如果之前用过ejs的一定知道ejs能够嵌套其他的ejs文件，所有的ejs都是嵌套在layout.ejs里面的。打开layout.ejs可以看到。</p>
 <p><img src="http://o8sxkcont.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-27%20%E4%B8%8B%E5%8D%885.44.04.png"></p>
 <p>我截了一块body里面的，整个内容页面呢就在这里分成了header、body、footer然后具体里面的内容就在layout文件夹下面的partials文件夹里面的各个ejs文件。不同的路由hexo会去填充不同的ejs。</p>
-<p>​    我们可以先运行下，看下最原始的主题是啥样子。cd到整个blog项目的目录下，修_config.yml文件，修改里面的theme字段为你的主题的名字（一定要记得修改，:号后面一定要空格），我这里就是z-index，然后运行hexo s 等跑起来了，浏览器打开默认的地址是：localhost:4000能够看到。。。。。恩，就是这么原始，就是这么朴素。</p>
+<p>​    我们可以先运行下，看下最原始的主题是啥样子。cd到整个blog项目的目录下，修_config.yml文件，修改里面的theme字段为你的主题的名字（一定要记得修改，:号后面一定要空格），我这里就是z-index，然后运行hexo s 等跑起来了，浏览器打开默认的地址是：localhost:4000能够看到。。。。。</p>
+<p><img src="http://o8sxkcont.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-27%20%E4%B8%8B%E5%8D%885.53.09.png"></p>
+<p>恩，就是这么原始，就是这么朴素。</p>
 <p>好了，赶紧开始我们自己的主题开发吧。    </p>
+<p>默认会css文件夹里面会有一个跟你的主题名字一样的.css文件，js也一样。这两个就是主战场了，具体的开发看自己了。</p>
+<ul>
+<li>reset.css咯</li>
+<li>从index.ejs一个一个的对照着页面写样式</li>
+</ul>
+<p>哥们自己这里因为特别喜欢clip-path这个属性，所以写了一个loading的组件。</p>
+<blockquote>
+<p>文章的排版</p>
+</blockquote>
+<p>首页啊乱七八糟的页面的样式都是老的东西，不过这里想特别的提下文章的样式。这个其实挺头疼的，因为博客博客最核心的当然就是文章了，可是感觉如果每种样式去调教去写的话又可以出个文章了。</p>
+<p>所以在这里。。。大大的安利一个sofish大大的<a href="http://typo.sofi.sh/中文网页的重设与排版。很好看，用的也很爽。因为也是在.typo下的，也不会污染其他的元素。" target="_blank" rel="external">http://typo.sofi.sh/中文网页的重设与排版。很好看，用的也很爽。因为也是在.typo下的，也不会污染其他的元素。</a></p>
+<blockquote>
+<p>后续</p>
+</blockquote>
+<p>好像没有太多的后续了，hexo配置好之后，先generate再deploy就行了。</p>
 
 </article>
 <div style="clear:both"></div>
