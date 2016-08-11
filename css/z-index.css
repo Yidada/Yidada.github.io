@@ -3568,7 +3568,11 @@ body {
   height: inherit;
   background: #f1f1f1;
 }
+.recent-post-item {
+  display: none;
+}
 .front-post {
+  display: block !important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
