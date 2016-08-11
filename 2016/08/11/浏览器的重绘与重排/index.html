@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>浏览器的重绘与重排Z-INDEX</title>
+    <meta http-equiv="description" content="张达铭-Z-INDEX"/>
+    <meta name="description" content="张达铭的个人博客，张达铭的技术作品，张达铭的生活成长"/>
+    <meta name="keywords" content="张达铭,张益达,个人博客, 个人网站, web前端,JavaScript,css,html"/>
+    <meta name="author" content="张达铭,张益达,zhangdaming,zhangyida"/>
+
+
+
+    <!-- css -->
+    
+    <!-- stylesheets list from config.yml -->
+    
+    <link rel="stylesheet" href="/css/z-index.css">
+    
+    
+</head>
+<body>
+<!-- header -->
+<header id="menu-outer">
+  <nav id="menu-inner">
+    <a href="/">
+      <i class="iconfont logo">&#xe600;</i>
+      Z-INDEX
+    </a>
+    
+      <a href="/">首页</a>
+    
+      <a href="/archives">归档</a>
+    
+  </nav>
+</header>
+
+
+<!-- content -->
+
+<article id="content-outer">
+    <div id="content-inner">
+        
+<article class="typo" id="post">
+  <h1>浏览器的重绘与重排</h1>
+  <h2 id="了解浏览器的工作"><a href="#了解浏览器的工作" class="headerlink" title="了解浏览器的工作"></a>了解浏览器的工作</h2><p>在之前的一些实践当中大多数都是针对页面的加载，图片的压缩之类的物理上的优化。可实际上在项目里面很多时候针对页面的交互效果进行优化，往往会带来很大程度上的性能的提升，而且这些提升并不需要额外的工作，只要在编码的时候多想想多考虑下。</p>
+<p>这就是为什么要去理解浏览器的工作原理的意义了。</p>
+<h2 id="浏览器的重绘和重排"><a href="#浏览器的重绘和重排" class="headerlink" title="浏览器的重绘和重排"></a>浏览器的重绘和重排</h2><p>在页面的交互或视觉效果中往往不知不觉就会造成一系列的浏览器重绘和重排，这样带来的性能代价是高昂的。那么如何去判断我的操作会不会带来浏览器的重绘和重排呢？两者发生的时候如何权衡？在具体的开发过程中怎么讲重绘和重排考虑进去？</p>
+<h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><p>重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，让元素呈现新的外观，所以重绘不会带来重新的布局，并不一定伴随着重排。</p>
+<h3 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h3><p>重拍则是很明显的改变了，意味着浏览器的渲染树是要重新计算的。</p>
+<p>通常以下的操作会触发重排：</p>
+<ol>
+<li><p>DOM元素的几何属性变化</p>
+<p>当DOM元素的几何属性，宽高之类的变化，渲染树中的相关节点就会失效，浏览器会根据DOM元素的变化重新构建渲染树中失效的节点。然后，根据新的渲染树去重绘这部分页面。如果容器借点的渲染树改变的时候，也会触发子节点的重计算，触发后续兄弟节点的重排。如果某个祖先借点要通过计算子节点的尺寸来得到自己的一些尺寸也会产生重排。最后每个元素发生重绘。</p>
+</li>
+<li><p>DOM树结构变化</p>
+<p>当DOM树的结构变化时，比如节点的增减、移动等，也会触发重排。因为浏览器引擎布局的过程，类似于树的前序遍历，是一个从上到下从左到右的过程。在body最后面插入一个元素，不会影响到前面的元素，但是如果在body最前面插入一个元素，会导致整个的文档的重新渲染。。。</p>
+</li>
+<li><p>获取某些属性</p>
+<p>因为浏览器引擎会针对重排做一些优化，比如Opera会等足够数量的变化发生，或者等到一定时间，或者等一个线程结束，再一起处理，这样就只发生了一次重排。但如果获取一些属性的时候，浏览器为了获取正确的值也会触发重排，这样就强制打断了浏览器的一些优化。</p>
+<p>这些属性包括：offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、 clientTop、clientLeft、clientWidth、clientHeight、getComputedStyle() (currentStyle in IE)。所以如果多次使用这些值的时候，应进行缓存。</p>
+</li>
+</ol>
+<h2 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h2><p>肯定是尽量的避免以上的操作，如果遇到重排也要尽量减少它的影响范围和重排次数。</p>
+<ol>
+<li><p>将多次改变样式属性的操作合并成一次操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> changDiv = <span class="built_in">document</span>.getElementById(<span class="string">'changeDiv'</span>);</div><div class="line">changeDiv.style.color = <span class="string">'#093'</span>;</div><div class="line">changeDiv.style.background = <span class="string">'#fff'</span>;</div><div class="line">changeDiv.style.height = <span class="string">'200px'</span>;</div><div class="line">changeDiv.style.width = <span class="string">'200px'</span>;</div></pre></td></tr></table></figure>
+<p>可以替换成</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.changeDiv</span>&#123;</div><div class="line">  <span class="attribute">background</span>:<span class="number">#fff</span>;</div><div class="line">  <span class="attribute">color</span>:<span class="number">#093</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">200px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'changeDiv'</span>).className = <span class="string">'changeDiv'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>讲需要重排的元素，position属性设为absolute或者fixed，这样就脱离了文档流，他们的变化就不会影响到其他的元素，这也意味着有动画效果的元素最好设置为绝对定位。</p>
+</li>
+<li><p>由于display属性为none的元素不在渲染树当中，所以对这个元素的操作不会触发其他元素的重排。如果要对一个元素进行复杂的操作的时候，可以先隐藏它，操作完成之后再显示。这样只在隐藏和显示的时候触发两次重排。</p>
+</li>
+<li><p>对于那些获取会引起浏览器重排的值，缓存下。</p>
+</li>
+</ol>
+<p>over…</p>
+
+</article>
+<div style="clear:both"></div>
+
+<!--<nav id="pagination">-->
+  <!---->
+
+  <!---->
+
+  <!---->
+    <!--<a href="/2016/08/01/javascript中的隐式转换/" class="next">Next &rarr;</a>-->
+  <!---->
+<!--</nav>-->
+
+
+    </div>
+</article>
+
+
+<!-- footer -->
+
+
+
+
+
+<!-- js -->
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/zepto.js"></script>
+
+<script src="/js/sweetalert.min.js"></script>
+
+<script src="/js/z-index.js"></script>
+
+
+
+</body>
+</html>
